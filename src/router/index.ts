@@ -1,6 +1,6 @@
 import { createRouter , createWebHistory, RouteRecordRaw } from 'vue-router';
 import { camelCase, forEach } from 'lodash-es';
-import HelloWorld from '@/components/HelloWorld.vue';
+import Home from '@/views/index.vue';
 
 const modules = import.meta.glob('../views/**/index.vue');
 const pages = import.meta.glob('../views/*.vue');
@@ -27,8 +27,8 @@ const addRoutes = (routers: any, routes: Array<RouteRecordRaw>, type: string = '
 const routes: Array<RouteRecordRaw> =  [
 	{
 		path: '/',
-		name: 'Index',
-		component: HelloWorld,
+		name: 'index',
+		component: Home,
 	},
 ];
 
