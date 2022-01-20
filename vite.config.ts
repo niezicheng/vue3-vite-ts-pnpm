@@ -1,8 +1,10 @@
 import { UserConfigExport } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
+import { loadEnv } from 'vite';
 
-export default (): UserConfigExport => {
+export default ({ mode }): UserConfigExport => {
+  const env = loadEnv(mode, process.cwd());
 
   return {
     plugins: [
@@ -23,11 +25,14 @@ export default (): UserConfigExport => {
     open: true, // 启动打开浏览器
     cors: true, // 跨域
     proxy: {
-      "/api": {
-        target: "https://suggest.taobao.com", // 目标地址
+      // 依据环境获取 .env.development 或 .env.production 文件中的配置
+      [env.VITE_GLOB_API_URL]: {
+        // '/api'
+        target: env.VITE_PROXY, // 在 .env.development 中配置
         changeOrigin: true, // 修改源
-        secure: false, // ssl
-        rewrite: path => path.replace("/api/", "/")
+        // ws: true, // if you want to proxy websockets
+        rewrite: path =>
+          path.replace(new RegExp(`^${env.VITE_GLOB_API_URL}`), '')
       }
     }
   }
