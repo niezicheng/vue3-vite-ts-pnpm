@@ -24,7 +24,7 @@ export default (): UserConfigExport => {
     cors: true, // 跨域
     proxy: {
       "/api": {
-        target: "http://localhost:8080/api/", // 目标地址
+        target: "https://suggest.taobao.com", // 目标地址
         changeOrigin: true, // 修改源
         secure: false, // ssl
         rewrite: path => path.replace("/api/", "/")

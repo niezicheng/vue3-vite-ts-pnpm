@@ -8,6 +8,17 @@
 
 <script setup lang="ts">
 import { useAppStore } from '@/store/modules/app';
+import { defHttp } from '@/utils/http';
+
+(async () => {
+  // 测试封装的 axios
+  const res = await defHttp.request({
+    url: '/api/sug?code=utf-8&q=电脑',
+    method: 'GET',
+  });
+
+  console.log(res);
+})()
 
 const appStore = useAppStore();
 </script>
