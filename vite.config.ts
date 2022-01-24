@@ -1,14 +1,20 @@
 import { UserConfigExport } from 'vite';
+import { viteMockServe } from 'vite-plugin-mock'
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import { loadEnv } from 'vite';
 
-export default ({ mode }): UserConfigExport => {
+export default ({ command, mode }): UserConfigExport => {
   const env = loadEnv(mode, process.cwd());
 
   return {
     plugins: [
-      vue()
+      vue(),
+      viteMockServe({
+        // default
+        mockPath: 'mock',
+        localEnabled: command === 'serve',
+      }),
     ],
 
     resolve: {

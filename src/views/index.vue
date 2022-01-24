@@ -8,16 +8,18 @@
 
 <script setup lang="ts">
 import { useAppStore } from '@/store/modules/app';
-import { defHttp } from '@/utils/http';
+import { TestApi, MockGet, MockPost } from '@/api/test';
 
 (async () => {
   // 测试封装的 axios
-  const res = await defHttp.request({
-    url: '/api/sug?code=utf-8&q=电脑',
-    method: 'GET',
-  });
+  const res1 = await TestApi();
+  console.log('TestApi:', res1);
 
-  console.log(res);
+  const res2 = await MockGet();
+  console.log('MockGet:', res2);
+
+  const res3 = await MockPost();
+  console.log('MockPost:', res3);
 })()
 
 const appStore = useAppStore();
