@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/essential',
+    'plugin:jest/recommended', // 添加测试插件
     'airbnb-base',
     "airbnb-typescript/base", // 添加 typescript 支持
     "plugin:vue/vue3-recommended", // 添加高亮行内容到文件 (vue3 的规则）。vue2 使用 plugin:vue/recommended
