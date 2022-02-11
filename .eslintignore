@@ -16,3 +16,4 @@ Dockerfile
 .eslintrc.js
 vite.config.ts
 commitlint.config.js
+changelog.config.js
