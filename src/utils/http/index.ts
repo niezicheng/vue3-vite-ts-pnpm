@@ -1,4 +1,3 @@
-
 import type { AxiosRequestConfig } from 'axios';
 
 import { merge } from 'lodash-es';
