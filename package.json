@@ -5,9 +5,23 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint src/**/*.{js,vue,ts,jsx,tsx}",
+    "prepare": "husky install",
+    "lint": "lint-staged --allow-empty",
     "lint:fix": "eslint src/**/*.{vue,ts} --fix",
     "lint:create": "eslint --init"
+  },
+  "lint-staged": {
+    "src/**/!(*.min).js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/**/*.{ts,vue}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/**/*.{ts,js,vue,html,css,scss,sass,stylus}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -33,7 +47,9 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.4.1",
+    "husky": "^7.0.4",
     "less": "^4.1.2",
+    "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
     "sass": "^1.49.0",
     "stylus": "^0.56.0",
