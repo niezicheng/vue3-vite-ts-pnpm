@@ -15,3 +15,4 @@ dist
 Dockerfile
 .eslintrc.js
 vite.config.ts
+commitlint.config.js
