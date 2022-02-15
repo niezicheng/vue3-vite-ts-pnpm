@@ -1,7 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <router-view></router-view>
+  <el-config-provider size="small" :zIndex="zIndex">
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <router-view></router-view>
+  </el-config-provider>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { ElConfigProvider } from 'element-plus';
+import 'element-plus/dist/index.css';
+
+const zIndex = ref<number>(3000);
+</script>
 
 <style>
 #app {

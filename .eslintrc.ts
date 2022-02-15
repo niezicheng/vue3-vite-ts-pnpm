@@ -5,10 +5,12 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/essential', // 插件 eslint-config-vue/essential
     'plugin:jest/recommended', // 添加测试插件
-    'airbnb-base',
+    'airbnb-base', // 插件eslint-config-vue/airbnb-base
     "airbnb-typescript/base", // 添加 typescript 支持
+    // vue 文件 Parsing error: Unexpected token < [issue](https://github.com/vuejs/eslint-plugin-vue/issues/746)
+    "plugin:vue/base",
     "plugin:vue/vue3-recommended", // 添加高亮行内容到文件 (vue3 的规则）。vue2 使用 plugin:vue/recommended
     'plugin:prettier/recommended', // 添加解决冲突插件
   ],

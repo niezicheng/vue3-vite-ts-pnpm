@@ -2,11 +2,12 @@
   <h2 id="title">home page</h2>
   <div class="count">count: {{ appStore.count }}</div>
   <div class="countPow2">countPow2: {{ appStore.countPow2 }}</div>
-  <button @click="appStore.increment">count + 1</button>
-  <button @click="appStore.decrease">count - 1</button>
+  <el-button @click="appStore.increment">count + 1</el-button>
+  <el-button @click="appStore.decrease">count - 1</el-button>
 </template>
 
 <script setup lang="ts">
+import { ElButton } from 'element-plus';
 import { useAppStore } from '@/store/modules/app';
 import { TestApi, MockGet, MockPost } from '@/api/test';
 

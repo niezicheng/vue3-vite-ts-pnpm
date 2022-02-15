@@ -3,6 +3,9 @@ import { viteMockServe } from 'vite-plugin-mock';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import { loadEnv } from 'vite';
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default ({ command, mode }): UserConfigExport => {
   const env = loadEnv(mode, process.cwd());
@@ -14,7 +17,13 @@ export default ({ command, mode }): UserConfigExport => {
         // default
         mockPath: 'mock',
         localEnabled: command === 'serve'
-      })
+      }),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
     ],
 
     resolve: {
